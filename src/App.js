@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Cart } from "./Context";
+import { Cart, CartState } from "./Context";
 
 import "./styles.css";
 import UseFetch from "./UseFetch";
@@ -8,8 +8,8 @@ let API_URL = `https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems
 export default function App() {
   const {
     state: { data }
-  } = useContext(Cart);
-  console.log(data);
+  } = CartState();
+  // console.log(data);
 
   return (
     <div className="App">
@@ -18,11 +18,11 @@ export default function App() {
       <div>
         {data.map((items, index) => {
           return (
-            <li>
+            <div>
               {items.map((subItems, sIndex) => {
-                return <li> {subItems.name} </li>;
+                return <h3> {subItems.name} </h3>;
               })}
-            </li>
+            </div>
           );
         })}
       </div>

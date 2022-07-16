@@ -54,3 +54,6 @@ function Context({ children }) {
 
 export default Context;
 export const Cart = createContext();
+export const CartState = () => {
+  return useContext(Cart);
+};
