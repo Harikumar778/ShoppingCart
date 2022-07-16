@@ -15,7 +15,17 @@ export default function App() {
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
-      <div>{JSON.stringify(data, undefined, 2)}</div>
+      <div>
+        {data.map((items, index) => {
+          return (
+            <li>
+              {items.map((subItems, sIndex) => {
+                return <li> {subItems.name} </li>;
+              })}
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }
