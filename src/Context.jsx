@@ -10,7 +10,8 @@ const ACTIONS = {
 const initialState = {
   data: [],
   loading: false,
-  error: null
+  error: null,
+  cart: []
 };
 
 function reducer(state, { type, payload }) {
@@ -27,6 +28,11 @@ function reducer(state, { type, payload }) {
       return { ...state, data: [...state.data, payload], loading: false };
     case ACTIONS.ERROR:
       return { ...state, data: [], error: true };
+    case "ADD_TO_CART":
+      return { ...state, cart: [...state.cart, { ...payload, qty: 1 }] };
+    case "REMOVE_FROM_CART":
+      return { ...state, cart: state.cart.filter((c) => c.id !== payload.id) };
+
     default:
       return state;
   }
