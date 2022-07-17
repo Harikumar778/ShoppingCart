@@ -5,6 +5,9 @@ function Single({ subItems }) {
     state: { cart },
     dispatch
   } = CartState();
+
+  console.log(cart);
+
   return (
     <div>
       {subItems.name}

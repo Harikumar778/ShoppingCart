@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
-import { Cart, CartState } from "./Context";
+import CartPage from "./CartPage";
+import { CartState } from "./Context";
 import Filters from "./Filters";
+import Navbar from "./Navbar";
 import Single from "./Single";
 
 import "./styles.css";
@@ -15,6 +17,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <Filters />
       <div>
         {data.map((items, index) => {
@@ -27,6 +30,7 @@ export default function App() {
           );
         })}
       </div>
+      <CartPage />
     </div>
   );
 }
